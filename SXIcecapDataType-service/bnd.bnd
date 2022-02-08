@@ -1,0 +1,10 @@
+Bundle-Name: SXIcecapDataType-service
+Bundle-SymbolicName: com.sx.icecap.datatype.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+Export-Package: \
+	com.sx.icecap.datatype.search,\
+	com.sx.icecap.datatype.workflow,\
+	com.sx.icecap.datatype.security.permission.resource

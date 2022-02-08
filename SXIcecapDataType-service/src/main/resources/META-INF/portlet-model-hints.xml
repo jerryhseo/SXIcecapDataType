@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.sx.icecap.datatype.model.DataType">
+		<field name="uuid" type="String" />
+		<field name="dataTypeId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="dataTypeName" type="String" />
+		<field name="dataTypeVersion" type="String" />
+		<field localized="true" name="displayName" type="String" />
+		<field name="extension" type="String" />
+		<field name="sampleFileId" type="long" />
+		<field localized="true" name="description" type="String" />
+		<field localized="true" name="tooltip" type="String" />
+		<field name="hasDataStructure" type="boolean" />
+	</model>
+	<model name="com.sx.icecap.datatype.model.DataTypeStructure">
+		<field name="dataTypeId" type="long" />
+		<field name="structure" type="String" />
+	</model>
+</model-hints>

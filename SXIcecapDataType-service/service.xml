@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_2_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.sx.icecap.datatype">
+	<namespace>SXDatatype</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity name="DataType" local-service="true" uuid="true" remote-service="false" uuid-accessor="true">
+
+		<!-- PK fields -->
+		<column name="dataTypeId" primary="true" type="long"></column>
+		
+		<!-- Group Instance -->
+		<column name="companyId" type="long"></column>
+		<column name="groupId" type="long"></column>
+		
+		<!-- Audit fields -->
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		
+		<!-- Status fields for workflow -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		
+		<!--  Descriptive -->
+		<column name="dataTypeName" type="String"></column>
+		<column name="dataTypeVersion" type="String"></column>
+		<column name="displayName" type="String" localized="true"></column>
+		<column name="extension" type="String"></column>
+		<column name="sampleFileId" type="long"></column>
+		<column name="description" type="String" localized="true"></column>
+		<column name="tooltip" type="String" localized="true"></column>
+		<column name="hasDataStructure" type="boolean" ></column>
+		
+		<!-- Finders -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId"></finder-column>
+		</finder>
+		<finder name="Status" return-type="Collection">
+			<finder-column name="status"></finder-column>
+		</finder>
+		
+		<finder name="G_U" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="userId"></finder-column>
+		</finder>
+		<finder name="G_S" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		<finder name="U_S" return-type="Collection">
+			<finder-column name="userId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		<finder name="G_U_S" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+			<finder-column name="userId"></finder-column>
+			<finder-column name="status"></finder-column>
+		</finder>
+		
+		<finder name="Name" return-type="Collection">
+			<finder-column name="dataTypeName" ></finder-column>
+		</finder>
+
+		<finder name="NameVersion" return-type="Collection">
+			<finder-column name="dataTypeName" ></finder-column>
+			<finder-column name="dataTypeVersion" ></finder-column>
+		</finder>
+		
+		<!-- finder with groupId -->
+		
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
+		<reference entity="RatingsStats" package-path="com.liferay.portlet.ratings" />
+		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
+		<reference entity="TrashVersion" package-path="com.liferay.portlet.trash" />
+		<reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
+		
+	</entity>
+	
+	<entity name="DataTypeStructure" local-service="true" remote-service="false">
+		<column name="dataTypeId" primary="true" type="long"></column>
+		<column name="structure" type="String" json-enabled="true"></column><!--  typeContent: JSON -->
+	</entity>
+	
+	<exceptions>
+        <exception>DuplicatedDataTypeName</exception>
+        <exception>InvalidDataTypeName</exception>
+	</exceptions>
+</service-builder>

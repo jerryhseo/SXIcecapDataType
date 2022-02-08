@@ -1,0 +1,13 @@
+Bundle-Name: SXIcecapDataType-api
+Bundle-SymbolicName: com.sx.icecap.datatype.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.sx.icecap.datatype.exception,\
+	com.sx.icecap.datatype.model,\
+	com.sx.icecap.datatype.service,\
+	com.sx.icecap.datatype.service.persistence,\
+	com.sx.icecap.datatype.util.comparator,\
+	com.sx.icecap.datatype.debug,\
+	com.sx.icecap.datatype.constants
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../SXIcecapDataType-service/service.xml
