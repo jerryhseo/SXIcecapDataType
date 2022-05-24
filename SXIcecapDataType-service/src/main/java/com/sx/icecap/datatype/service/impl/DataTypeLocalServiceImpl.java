@@ -64,6 +64,7 @@ public class DataTypeLocalServiceImpl extends DataTypeLocalServiceBaseImpl {
 	public DataType addDataType(
 			String dataTypeName,
 			String dataTypeVersion,
+			String extension,
 			Map<Locale, String> displayNameMap,
 			Map<Locale, String> descriptionMap,
 			Map<Locale, String> tooltipMap,
@@ -79,6 +80,7 @@ public class DataTypeLocalServiceImpl extends DataTypeLocalServiceBaseImpl {
 		
 		dataType.setDataTypeName(dataTypeName);
 		dataType.setDataTypeVersion(dataTypeVersion);
+		dataType.setExtension(extension);
 		dataType.setDisplayNameMap(displayNameMap, sc.getLocale());
 		dataType.setDescriptionMap(descriptionMap, sc.getLocale());
 		dataType.setTooltipMap(tooltipMap, sc.getLocale());
@@ -161,6 +163,7 @@ public class DataTypeLocalServiceImpl extends DataTypeLocalServiceBaseImpl {
 			long dataTypeId, 
 			String dataTypeName, 
 			String dataTypeVersion,
+			String extension,
 			Map<Locale, String> displayNameMap,
 			Map<Locale, String> descriptionMap,
 			Map<Locale, String> tooltipMap,
@@ -170,6 +173,7 @@ public class DataTypeLocalServiceImpl extends DataTypeLocalServiceBaseImpl {
 		
 		dataType.setDataTypeName(dataTypeName);
 		dataType.setDataTypeVersion(dataTypeVersion);
+		dataType.setExtension(extension);
 		dataType.setDisplayNameMap(displayNameMap, sc.getLocale());
 		dataType.setDescriptionMap(descriptionMap, sc.getLocale());
 		dataType.setTooltipMap(tooltipMap, sc.getLocale());
@@ -292,25 +296,37 @@ public class DataTypeLocalServiceImpl extends DataTypeLocalServiceBaseImpl {
 		}
 	}
 	
+	/**
+	 *  Set the data structure for the dataType specified by dataTypeId.
+	 *  
+	 *  @since 1.0
+	 *  @see com.sx.icecap.datatype.service
+	 *  @author Jerry H. Seo
+	 *  @param
+	 *  	long Datatype ID
+	 *  	String Data Structure
+	 *  @throws
+	 *  	void
+	 *  @return
+	 *  	void
+	 */
 	public void setDataTypeStructure( long dataTypeId, String dataStructure ) {
-		DataTypeStructure dataTypeStructure = null;
 		
-		try {
-			dataTypeStructure = super.dataTypeStructurePersistence.findByPrimaryKey(dataTypeId);
-		} catch (NoSuchDataTypeStructureException e) {
-			dataTypeStructure = super.dataTypeStructurePersistence.create(dataTypeId);
-		}
+		// Set data structure and update the table
+		_setDataTypeStructure(dataTypeId, dataStructure);
 		
-		dataTypeStructure.setStructure(dataStructure);
-		
-		super.dataTypeStructurePersistence.update(dataTypeStructure);
+		// Update the property, hasDataStructure,  of the data type as true
+		_updateHasDataStructure( dataTypeId, true );
 	}
 	
 	public void removeDataTypeStructure( long dataTypeId ) {
 		try {
 			super.dataTypeStructurePersistence.remove(dataTypeId);
 		} catch (NoSuchDataTypeStructureException e) {
+			System.out.println("Cannot find datatype structure of the datatype, [" + dataTypeId + "], while removing");
 		}
+		
+		_updateHasDataStructure( dataTypeId, false );
 	}
 	
 	public List<DataType> getAllDataTypes(){
@@ -566,4 +582,13 @@ public class DataTypeLocalServiceImpl extends DataTypeLocalServiceBaseImpl {
 		
 		return super.dataTypeStructurePersistence.update(dataTypeStructure);
 	}
+	
+	private DataType _updateHasDataStructure( long dataTypeId, boolean has ) {
+		DataType dataType = super.dataTypeLocalService.fetchDataType(dataTypeId);
+		dataType.setHasDataStructure(has);
+		super.dataTypePersistence.update(dataType);
+		
+		return dataType;
+	}
+
 }

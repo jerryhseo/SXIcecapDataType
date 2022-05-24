@@ -69,6 +69,7 @@ public class DataTypeStagedModelDataHandler extends BaseStagedModelDataHandler<D
 				importedDataType = _dataTypeLocalService.addDataType(
 						dataType.getDataTypeName(), 
 						dataType.getDataTypeVersion(),
+						dataType.getExtension(),
 						dataType.getDisplayNameMap(),
 						dataType.getDescriptionMap(),
 						dataType.getTooltipMap(),
@@ -80,6 +81,7 @@ public class DataTypeStagedModelDataHandler extends BaseStagedModelDataHandler<D
 						existingDataType.getDataTypeId(), 
 						dataType.getDataTypeName(), 
 						dataType.getDataTypeVersion(),
+						dataType.getExtension(),
 						dataType.getDisplayNameMap(),
 						dataType.getDescriptionMap(),
 						dataType.getTooltipMap(),
@@ -92,6 +94,7 @@ public class DataTypeStagedModelDataHandler extends BaseStagedModelDataHandler<D
 			importedDataType = _dataTypeLocalService.addDataType(
 					dataType.getDataTypeName(), 
 					dataType.getDataTypeVersion(),
+					dataType.getExtension(),
 					dataType.getDisplayNameMap(),
 					dataType.getDescriptionMap(),
 					dataType.getTooltipMap(),

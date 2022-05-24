@@ -62,7 +62,7 @@ public class DataTypeLocalServiceUtil {
 	}
 
 	public static DataType addDataType(
-			String dataTypeName, String dataTypeVersion,
+			String dataTypeName, String dataTypeVersion, String extension,
 			Map<java.util.Locale, String> displayNameMap,
 			Map<java.util.Locale, String> descriptionMap,
 			Map<java.util.Locale, String> tooltipMap, int status,
@@ -70,8 +70,8 @@ public class DataTypeLocalServiceUtil {
 		throws PortalException {
 
 		return getService().addDataType(
-			dataTypeName, dataTypeVersion, displayNameMap, descriptionMap,
-			tooltipMap, status, sc);
+			dataTypeName, dataTypeVersion, extension, displayNameMap,
+			descriptionMap, tooltipMap, status, sc);
 	}
 
 	public static int countAllDataTypes() {
@@ -561,6 +561,17 @@ public class DataTypeLocalServiceUtil {
 		getService().removeDataTypeStructure(dataTypeId);
 	}
 
+	/**
+	 * Set the data structure for the dataType specified by dataTypeId.
+	 *
+	 * @since 1.0
+	 * @see com.sx.icecap.datatype.service
+	 * @author Jerry H. Seo
+	 * @param long Datatype ID
+	 String Data Structure
+	 * @throws void
+	 * @return void
+	 */
 	public static void setDataTypeStructure(
 		long dataTypeId, String dataStructure) {
 
@@ -583,15 +594,15 @@ public class DataTypeLocalServiceUtil {
 
 	public static DataType updateDataType(
 			long dataTypeId, String dataTypeName, String dataTypeVersion,
-			Map<java.util.Locale, String> displayNameMap,
+			String extension, Map<java.util.Locale, String> displayNameMap,
 			Map<java.util.Locale, String> descriptionMap,
 			Map<java.util.Locale, String> tooltipMap, int status,
 			com.liferay.portal.kernel.service.ServiceContext sc)
 		throws PortalException {
 
 		return getService().updateDataType(
-			dataTypeId, dataTypeName, dataTypeVersion, displayNameMap,
-			descriptionMap, tooltipMap, status, sc);
+			dataTypeId, dataTypeName, dataTypeVersion, extension,
+			displayNameMap, descriptionMap, tooltipMap, status, sc);
 	}
 
 	public static DataType updateStatus(

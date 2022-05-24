@@ -35,9 +35,13 @@ public class IcecapDataTypeConstants {
 	public static final String DATATYPE_MANAGEMENT_JSP_ROOT = "/html/DataTypeManagement";
 	public static final String JSP_DATATYPE_LIST_VIEW = "/html/DataTypeManagement/datatype-list.jsp";
 	public static final String JSP_DATATYPE_EDIT = "/html/DataTypeManagement/edit-datatype.jsp";
+	public static final String JSP_DATATYPE_DEFINE_STRUTURE = "/html/DataTypeManagement/define-data-structure.jsp";
 	public static final String JSP_DATATYPE_VIEW = "/html/DataTypeManagement/asset/full_content.jsp";
 	public static final String JSP_DATATYPE_SEARCH_VIEW = "/html/DataTypeManagement/view-search-datatypes.jsp";
 	public static final String JSP_DATATYPE_ACTIONS = "/html/DataTypeManagement/datatype-actions.jsp";
+
+	public static final String DEFAULT_CMD = "add";
+	public static final String CMD_REDIRECT_TO_DEFINE_STRUCTURE = "redirectToDefineStructure";
 	
 	public static final String[] NAVIGATION_KEYS() {
 		return new String[] { NAVIGATION_ALL, NAVIGATION_GROUP, NAVIGATION_MINE };

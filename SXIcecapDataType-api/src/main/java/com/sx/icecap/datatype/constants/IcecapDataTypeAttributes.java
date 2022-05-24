@@ -1,6 +1,7 @@
 package com.sx.icecap.datatype.constants;
 
 public class IcecapDataTypeAttributes {
+	public static final String DATATYPE_ID = "dataTypeId";
 	public static final String DATATYPE_NAME = "dataTypeName";
 	public static final String DATATYPE_VERSION = "dataTypeVersion";
 	public static final String DESCRIPTION = "description";

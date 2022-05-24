@@ -19,18 +19,18 @@ import org.osgi.service.component.annotations.Reference;
 public class DataTypeBatchReindexerImpl implements DataTypeBatchReindexer {
 
 	@Override
-	public void reindex(long termId, long companyId) {
+	public void reindex(long dataTypeId, long companyId) {
 		BatchIndexingActionable batchIndexingActionable = _indexerWriter.getBatchIndexingActionable();
 
 		batchIndexingActionable.setAddCriteriaMethod(dynamicQuery -> {
-			Property termIdProperty = PropertyFactoryUtil.forName("termId");
-			dynamicQuery.add(termIdProperty.eq(termId));
+			Property dataTypeIdProperty = PropertyFactoryUtil.forName("dataTypeId");
+			dynamicQuery.add(dataTypeIdProperty.eq(dataTypeId));
 		});
 
 		batchIndexingActionable.setCompanyId(companyId);
 
-		batchIndexingActionable.setPerformActionMethod((DataType term) -> {
-			Document document = _indexerDocumentBuilder.getDocument(term);
+		batchIndexingActionable.setPerformActionMethod((DataType dataType) -> {
+			Document document = _indexerDocumentBuilder.getDocument(dataType);
 			batchIndexingActionable.addDocuments(document);
 		});
 

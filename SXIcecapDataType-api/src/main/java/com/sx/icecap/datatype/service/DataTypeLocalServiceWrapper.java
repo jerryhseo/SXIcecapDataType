@@ -51,7 +51,7 @@ public class DataTypeLocalServiceWrapper
 
 	@Override
 	public com.sx.icecap.datatype.model.DataType addDataType(
-			String dataTypeName, String dataTypeVersion,
+			String dataTypeName, String dataTypeVersion, String extension,
 			java.util.Map<java.util.Locale, String> displayNameMap,
 			java.util.Map<java.util.Locale, String> descriptionMap,
 			java.util.Map<java.util.Locale, String> tooltipMap, int status,
@@ -59,8 +59,8 @@ public class DataTypeLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _dataTypeLocalService.addDataType(
-			dataTypeName, dataTypeVersion, displayNameMap, descriptionMap,
-			tooltipMap, status, sc);
+			dataTypeName, dataTypeVersion, extension, displayNameMap,
+			descriptionMap, tooltipMap, status, sc);
 	}
 
 	@Override
@@ -675,6 +675,17 @@ public class DataTypeLocalServiceWrapper
 		_dataTypeLocalService.removeDataTypeStructure(dataTypeId);
 	}
 
+	/**
+	 * Set the data structure for the dataType specified by dataTypeId.
+	 *
+	 * @since 1.0
+	 * @see com.sx.icecap.datatype.service
+	 * @author Jerry H. Seo
+	 * @param long Datatype ID
+	 String Data Structure
+	 * @throws void
+	 * @return void
+	 */
 	@Override
 	public void setDataTypeStructure(long dataTypeId, String dataStructure) {
 		_dataTypeLocalService.setDataTypeStructure(dataTypeId, dataStructure);
@@ -700,6 +711,7 @@ public class DataTypeLocalServiceWrapper
 	@Override
 	public com.sx.icecap.datatype.model.DataType updateDataType(
 			long dataTypeId, String dataTypeName, String dataTypeVersion,
+			String extension,
 			java.util.Map<java.util.Locale, String> displayNameMap,
 			java.util.Map<java.util.Locale, String> descriptionMap,
 			java.util.Map<java.util.Locale, String> tooltipMap, int status,
@@ -707,8 +719,8 @@ public class DataTypeLocalServiceWrapper
 		throws com.liferay.portal.kernel.exception.PortalException {
 
 		return _dataTypeLocalService.updateDataType(
-			dataTypeId, dataTypeName, dataTypeVersion, displayNameMap,
-			descriptionMap, tooltipMap, status, sc);
+			dataTypeId, dataTypeName, dataTypeVersion, extension,
+			displayNameMap, descriptionMap, tooltipMap, status, sc);
 	}
 
 	@Override

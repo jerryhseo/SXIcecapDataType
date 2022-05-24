@@ -25,7 +25,6 @@ public class DataTypeModelDocumentContributor implements ModelDocumentContributo
 	
 	@Override
 	public void contribute(Document document, DataType dataType) {
-//			System.out.println("TermModelDocumentContributor.......");
 			document.addDate(Field.MODIFIED_DATE, dataType.getModifiedDate());
 			document.addKeyword(IcecapDataTypeAttributes.DATATYPE_NAME, dataType.getDataTypeName());
 			document.addLocalizedKeyword(IcecapDataTypeAttributes.DESCRIPTION, dataType.getDescriptionMap(), true);

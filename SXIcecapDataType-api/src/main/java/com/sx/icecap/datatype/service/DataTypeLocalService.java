@@ -86,7 +86,7 @@ public interface DataTypeLocalService
 
 	@Indexable(type = IndexableType.REINDEX)
 	public DataType addDataType(
-			String dataTypeName, String dataTypeVersion,
+			String dataTypeName, String dataTypeVersion, String extension,
 			Map<Locale, String> displayNameMap,
 			Map<Locale, String> descriptionMap, Map<Locale, String> tooltipMap,
 			int status, ServiceContext sc)
@@ -443,6 +443,17 @@ public interface DataTypeLocalService
 
 	public void removeDataTypeStructure(long dataTypeId);
 
+	/**
+	 * Set the data structure for the dataType specified by dataTypeId.
+	 *
+	 * @since 1.0
+	 * @see com.sx.icecap.datatype.service
+	 * @author Jerry H. Seo
+	 * @param long Datatype ID
+	 String Data Structure
+	 * @throws void
+	 * @return void
+	 */
 	public void setDataTypeStructure(long dataTypeId, String dataStructure);
 
 	/**
@@ -461,7 +472,7 @@ public interface DataTypeLocalService
 	@Indexable(type = IndexableType.REINDEX)
 	public DataType updateDataType(
 			long dataTypeId, String dataTypeName, String dataTypeVersion,
-			Map<Locale, String> displayNameMap,
+			String extension, Map<Locale, String> displayNameMap,
 			Map<Locale, String> descriptionMap, Map<Locale, String> tooltipMap,
 			int status, ServiceContext sc)
 		throws PortalException;
