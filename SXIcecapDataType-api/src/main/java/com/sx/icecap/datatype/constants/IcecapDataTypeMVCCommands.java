@@ -19,6 +19,7 @@ public class IcecapDataTypeMVCCommands {
 	public static final String ACTION_DATATYPE_PUBLISH = "/html/DataTypeManagement/publish-datatype";
 	public static final String ACTION_BULK = "/html/DataTypeManagement/bulk-actions";
 
-	public static final String RESOURCE_DATATYPE_RENDER_TERM_ATTR = "/html/DataTypeManagement/render-term-attr";
+	public static final String RESOURCE_DATATYPE_RENDER_TERM = "/html/DataTypeManagement/render-term";
+	public static final String RESOURCE_DATATYPE_RENDER_DATATYPE = "/html/DataTypeManagement/render-datatype";
 	public static final String RESOURCE_DATATYPE_LOAD_STRUCTURE = "/html/DataTypeManagement/load-data-structure";
 }

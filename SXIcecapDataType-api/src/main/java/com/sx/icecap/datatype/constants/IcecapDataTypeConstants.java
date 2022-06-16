@@ -41,7 +41,14 @@ public class IcecapDataTypeConstants {
 	public static final String JSP_DATATYPE_ACTIONS = "/html/DataTypeManagement/datatype-actions.jsp";
 
 	public static final String DEFAULT_CMD = "add";
+	public static final String RENDER_TERM = "renderTerm";
+	public static final String RENDER_DATATYPE = "renderDataType";
 	public static final String CMD_REDIRECT_TO_DEFINE_STRUCTURE = "redirectToDefineStructure";
+	
+	public static final String LIST_DISPLAY_STYLE_SELECT = "select";
+	public static final String LIST_DISPLAY_STYLE_RADIO = "radio";
+	public static final String LIST_DISPLAY_STYLE_CHECK = "check";
+	
 	
 	public static final String[] NAVIGATION_KEYS() {
 		return new String[] { NAVIGATION_ALL, NAVIGATION_GROUP, NAVIGATION_MINE };
