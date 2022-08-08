@@ -22,4 +22,5 @@ public class IcecapDataTypeMVCCommands {
 	public static final String RESOURCE_DATATYPE_RENDER_TERM = "/html/DataTypeManagement/render-term";
 	public static final String RESOURCE_DATATYPE_RENDER_DATATYPE = "/html/DataTypeManagement/render-datatype";
 	public static final String RESOURCE_DATATYPE_LOAD_STRUCTURE = "/html/DataTypeManagement/load-data-structure";
+	public static final String RESOURCE_DATATYPE_SAVE_STRUCTURE = "/html/DataTypeManagement/save-data-structure";
 }
